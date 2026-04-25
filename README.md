@@ -1,6 +1,6 @@
 # Customer Data Pipeline
 
-<h1>Live: https://deepali.ftp.sh</h1>
+<h2>Live: https://deepali.ftp.sh</h2>
 
 End-to-end data ingestion pipeline that pulls customer records from a mock REST API, processes and upserts them into PostgreSQL, and exposes them through a query API.
 ![alt text](image.png)
