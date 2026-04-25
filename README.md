@@ -94,12 +94,12 @@ curl http://localhost:8000/api/customers/CUST-1001
 
 ## VPS Deployment (Ubuntu + Nginx Reverse Proxy)
 
-The app is hosted behind Nginx on an Ubuntu VPS at **`http://deepali.ftp.sh`**.
+The app is hosted behind Nginx on an Ubuntu VPS at **`https://deepali.ftp.sh`**.
 
 | URL | Backend |
 |---|---|
-| `http://deepali.ftp.sh/api/*` | Pipeline Service (FastAPI :8000) |
-| `http://deepali.ftp.sh/mock/api/*` | Mock Server (Flask :5000) — `/mock` prefix is stripped |
+| `https://deepali.ftp.sh/api/*` | Pipeline Service (FastAPI :8000) |
+| `https://deepali.ftp.sh/mock/api/*` | Mock Server (Flask :5000) — `/mock` prefix is stripped |
 
 ### Setup Steps
 
@@ -123,18 +123,18 @@ sudo systemctl reload nginx
 
 ```bash
 # health checks
-curl http://deepali.ftp.sh/api/health
-curl http://deepali.ftp.sh/mock/api/health
+curl https://deepali.ftp.sh/api/health
+curl https://deepali.ftp.sh/mock/api/health
 
 # trigger ingestion
-curl -X POST http://deepali.ftp.sh/api/ingest
+curl -X POST https://deepali.ftp.sh/api/ingest
 
 # query pipeline data
-curl "http://deepali.ftp.sh/api/customers?page=1&limit=5"
-curl http://deepali.ftp.sh/api/customers/CUST-1001
+curl "https://deepali.ftp.sh/api/customers?page=1&limit=5"
+curl https://deepali.ftp.sh/api/customers/CUST-1001
 
 # browse mock data
-curl "http://deepali.ftp.sh/mock/api/customers?page=1&limit=5"
+curl "https://deepali.ftp.sh/mock/api/customers?page=1&limit=5"
 ```
 
 > **Note:** Docker ports are bound to `127.0.0.1` so services are only accessible through Nginx, not directly from the internet.
